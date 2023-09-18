@@ -7,6 +7,133 @@
   <script src="main.js" defer></script>
 </head>
 <body>
-  <div id="content"></div>
+  <div id="content">
+    <header class="header">
+      <h1>
+        <img src="img/restaurant-page-logo.svg" alt="" width="80" height="100%">
+        BREAKFAST CAFE'
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <img src="img/headline-home-restaurant-page.png" width="750" alt="">
+      <h2>Just Eat Now!</h2>
+      <p>Chefs love their work at this place and they have been experimenting with a lot of recipes to come up with the best combination to make you say wow</p>
+      <button>Contact Us</button>
+    </div>
+
+    <div class="menu">
+      <h2>
+        <img src="img/lugaw-headline-menu-restaurant-page.jpg" width="750" alt="">
+        <br>
+        Menu
+      </h2>
+
+      <div class="Lugaw">
+        <img src="img/lugaw-headline-menu-restaurant-page.jpg" width="500" alt="">
+        <h3>Lugaw</h3>
+        <p>Rice porridge made with boiled glutinous rice seasoned with garlic, ginger, and salt</p>
+        <span>$2.00</span>
+      </div>
+
+      <div class="Beef Pares">
+        <img src="img/headline-home-restaurant-page.png" width="500" alt="">
+        <h3>Beef Pares</h3>
+        <p>Braised beef stew with fried rice and beef stock</p>
+        <span>$1.4</span>
+      </div>
+
+      <div class="Mami Siopao">
+        <img src="img/mami-headline-contact-restaurant-page.jpg" width="500" alt="">
+        <h3>Mami Siopao</h3>
+        <p>Filipino-Chinese dish, Noodles made with white wheat flour noodles with chicken, beef, or pork. Bun is best when eaten warm.</p>
+        <span>$2.00</span>
+      </div>
+
+      <div class="champorado">
+        <img src="img/champorado.jpg" width="500" alt="">
+        <h3>Champorado</h3>
+        <p>Chocolate rice porridge with milk on top</p>
+        <span>$0.5</span>
+      </div>
+
+      <div class="Ensaymada">
+        <img src="img/ensaymada.jpg" width="500" alt="">
+        <h3>Ensaymada</h3>
+        <p>Butter and topped with buttercream, sugar, and grated cheese, typically queso de bola.</p>
+        <br>
+        <span>$0.5</span>
+      </div>
+    </div>
+
+    <div class="contact">
+
+      <img src="img/mami-headline-contact-restaurant-page.jpg" width="750" alt="">
+
+      <form action="">
+        <label for="full-name">Full Name: </label>
+        <input type="text" placeholder="John Riche" name="full-name" id="full-name">
+        <label for="email-address">Email Address: </label>
+        <input type="email" placeholder="john@example.com" name="email-address" id="email-address">
+        <label for="message">Message: </label>
+        <textarea name="message" id="message" cols="20" rows="1"></textarea>
+        <button type="submit">Contact Us</button>
+      </form>
+
+      <address>
+        <h3>Location</h3>
+        <p>You may want to use your map to find it. </p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1894.4460894718168!2d121.68685508670416!3d18.26076367300874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3386038f7fcd8c8b%3A0x98b1dde9c59b9d52!2sMang%20Pep&#39;s%20Food%20Hauz!5e0!3m2!1sen!2sph!4v1694995613733!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </address>
+
+        <div class="hours">
+          <table>
+            <caption>
+              <h2>Hours</h2>
+            </caption>
+            <tbody>
+              <tr>
+                <th scope="col">Status</th>
+                <th scope="col" >Sun</th>
+                <th scope="col">Mon</th>
+                <th scope="col">Tue</th>
+                <th scope="col">Wed</th>
+                <th scope="col">Thu</th>
+                <th scope="col">Fri</th>
+                <th scope="col">Sat</th>
+              </tr>
+              <tr>
+                <th scope="row">Open</th>
+                <td>9:30AM</td>
+                <td>9:30AM</td>
+                <td>8:30AM</td>
+                <td>7:30AM</td>
+                <td>9:30AM</td>
+                <td>9:30AM</td>
+                <td>8:30AM</td>
+              </tr>
+              <tr>
+                <th scope="row">Close</th>
+                <td>5:00PM</td>
+                <td>5:00PM</td>
+                <td>4:00PM</td>
+                <td>3:00PM</td>
+                <td>5:00PM</td>
+                <td>5:00PM</td>
+                <td>5:00PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+  </div>
 </body>
 </html>
