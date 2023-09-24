@@ -1,6 +1,6 @@
 /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+  v2.0 | 20110126
+  License: none (public domain)
 */
 
 @font-face {
@@ -60,320 +60,500 @@ table {
 }
 /* reset end */
 
-/* variables */
-
 *,
 *::before,
 *::after {
-  --color-palette-orange: #dc2d28;
-  --color-palette-maroon: #a50f14;
-  --color-palette-blue: #0a509b;
-  --color-palette-grey: #646464;
-  --color-palette-black: #232323;
+  /* use these palette */
+  --color-palette-orange: #284655;
+  --color-palette-maroon: #289b91;
+  --color-palette-blue: #ecc671;
+  --color-palette-grey: #f5a05f;
+  --color-palette-black: #e66e50;
 
-  --header-box-shadow: 0 0 5px 3px #00000015;
-  --header-border-bottom: 1px solid #00000015;
-  --header-padding: 0.5rem 2rem;
-  --header-top: 0;
-  --header-position: sticky;
-  --header-background-color: white;
-  --header-z-index: 99;
-  --header-display: flex;
+  --body-background-color: whitesmoke;
+  --body-font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --body-min-width: min(100% - 3rem, 500px);
+  --body-color: white;
+  --body-display: flex;
+  --body-flex-direction: column-reverse;
+  --body-justify-content: center;
+
+  /* header section */
   --header-align-items: center;
-  --header-justify-content: space-between;
-  --header-background-image: url(img/noise.png);
+  --header-background-color: white;
   --header-background-color: whitesmoke;
+  --header-border-bottom: 1px solid #00000015;
+  --header-box-shadow: 0 0 5px 3px #00000015;
+  --header-display: flex;
+  --header-justify-content: space-between;
+  --header-padding: 0.5rem 3rem;
+  --header-position: sticky;
+  --header-top: 0;
+  --header-z-index: 99;
+  --h1-align-items: center;
+  --h1-display: flex;
+  --h1-flex-direction: row-reverse;
+  --h1-font-family: 'dancing script', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --h1-font-size: clamp(1.5rem, 5vh, 5rem);
+  --h1-justify-content: flex-end;
+  --header-ul-display: flex;
+  --header-ul-padding-left: 0.5rem;
+  --header-list-item-padding: 0.5rem 0.75rem;
+  --header-list-item-anchor-color: green;
+  --header-nav-ul-li-a-active-color: blue;
+  --header-nav-ul-li-a-visited-color: rebeccapurple;
+  
+  /* home section */
+  --div-home-background-color: var(--color-palette-maroon);
+  --div-home-border-bottom-left-radius: 0.75rem;
+  --div-home-border-bottom-right-radius: 0.75rem;
+  --div-home-border: 1px solid #00000015;
+  --div-home-box-shadow: 0 0 5px 5px #00000015;
+  --div-home-color: white;
+  --div-home-margin-left: 7%;
+  --div-home-max-width: 75ch;
+  --div-home-min-width: 45ch;
+  --div-home-img-height: auto;
+  --div-home-img-width: 100%;
+  --div-home-h2-font-family: 'dancing script';
+  --div-home-h2-font-size: clamp(1rem, 5vw, 2rem);
+  --div-home-h2-padding: 0.5rem 1rem;
+  --div-home-para-font-size: clamp(1rem, 2vw, 1.2rem);
+  --div-home-para-letter-spacing: 0.5px;
+  --div-home-para-line-height: 1.5;
+  --div-home-para-padding: 1rem;
+  --div-home-button-background-color: var(--color-palette-grey);
+  --div-home-button-border-radius: 0.75rem;
+  --div-home-button-color: white;
+  --div-home-button-font-size: large;
+  --div-home-button-font-weight: bold;
+  --div-home-button-letter-spacing: 0.5px;
+  --div-home-button-margin: 1rem;
+  --div-home-button-padding: 1rem 2.5rem;
+  
+  /* menu section */
+  --div-menu-padding: 3rem;
+  --div-menu-margin: 1rem 2rem;
+  --h2-menu-font-size: clamp(1rem, 5vh, 2.5rem);
+  --h2-menu-font-weight: bolder;
+  --h2-menu-letter-spacing: 0.5px;
+  --h2-menu-line-height: 1.5;
+  --h2-menu-padding: 1rem 0.75rem;
+  --div-menu-unordered-lists-display: grid;
+  --div-menu-unordered-lists-gap: 2rem;
+  --div-menu-unordered-lists-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  --div-menu-food-items-img-border-top-left-radius: 0.75rem;
+  --div-menu-food-items-img-border-top-right-radius: 0.75rem;
+  --div-menu-food-items-img-height: auto;
+  --div-menu-food-items-img-width: 100%;
+  --div-menu-food-items-background-color: var(--color-palette-orange);
+  --div-menu-food-items-border-radius: 0.75rem;
+  --div-menu-food-items-border: 1px solid #00000015;
+  --div-menu-food-items-box-shadow: 0 0 5px 3px #00000015;
+  --div-menu-food-items-padding-bottom: 2.5rem;
+  --div-menu-food-items-position: relative;
+  --div-menu-h3-font-size: clamp(1rem, 3vh, 2rem);
+  --div-menu-h3-font-weight: bold;
+  --div-menu-h3-letter-spacing: 0.5px;
+  --div-menu-h3-line-height: 1.5;
+  --div-menu-h3-padding: 0.5rem 0.75rem;
+  --div-menu-para-font-size: clamp(0.5rem, 3vh, 1.5rem);
+  --div-menu-para-letter-spacing: 0.5px;
+  --div-menu-para-line-height: 1.5;
+  --div-menu-para-padding: 0.5rem 0.75rem;
+  --div-food-prices-bottom: 1%;
+  --div-food-prices-font-family: monospace;
+  --div-food-prices-font-size: clamp(0.5rem, 3vh, 1.5rem);
+  --div-food-prices-left: 2%;
+  --div-food-prices-letter-spacing: 0.5px;
+  --div-food-prices-padding: 1rem 0.75rem;
+  --div-food-prices-position: absolute;
 
+  /* contact section */
+  --div-contact-margin: 1rem 3rem;
+  --div-contact-h2-font-size: clamp(1.5rem, 5vw, 2rem);
+  --div-contact-h2-padding: 1.5rem 0.5rem;
+  --div-contact-ul-background-color: var(--color-palette-blue);
+  --div-contact-ul-border-radius: 0.75rem;
+  --div-contact-ul-border: 1px solid #00000015;
+  --div-contact-ul-box-shadow: 0 0 5px 4px #00000015;
+  --div-contact-ul-display: flex;
+  --div-contact-ul-flex-direction: column;
+  --div-contact-ul-flex-wrap: wrap;
+  --div-contact-ul-margin-bottom: 1rem;
+  --div-contact-ul-max-width: 75ch;
+  --div-contact-ul-min-width: 45ch;
+  --div-contact-ul-padding: 0.75rem 2rem;
+  --div-contact-li-display: flex;
+  --div-contact-li-flex-direction: column;
+  --label-font-size: clamp(0.5rem, 3vw, 1rem);
+  --label-padding: 0.75rem 0.5rem;
+  --input-name-email-textarea-background-color: white;
+  --input-name-email-textarea-border-color: #00000015;
+  --input-name-email-textarea-border-radius: 0.75rem;
+  --input-name-email-textarea-font-size: clamp(0.5rem, 3vw, 1rem);
+  --input-name-email-textarea-padding: 1rem 0.5rem;
+  --input-name-email-textarea-resize: none;
+  --input-name-email-focus-visible-background-color: white;
+  --input-name-email-focus-visible-outline-offset: 0;
+  --input-name-email-focus-visible-outline: 2px solid green;
+  --input-name-email-focus-visible-valid-outline-color: blue;
+  --input-name-email-focus-visible-invalid-outline-color: var(--color-palette-maroon);
+  --button-type-submit-background-color: var(--color-palette-grey);
+  --button-type-submit-border-radius: 0.75rem;
+  --button-type-submit-color: white;
+  --button-type-submit-font-size: clamp(1rem, 3vw, 1rem);
+  --button-type-submit-font-weight: bold;
+  --button-type-submit-margin: 1rem 0.5rem;
+  --button-type-submit-padding: 1rem 2rem;
+  --button-type-submit-width: max-content;
+  --text-area-focus-visible-outline: 2px solid green;
+  --text-area-focus-visible-outline-offset: 0;
+  --text-area-focus-visible-vaild-outline: 2px solid blue;
+  --text-area-focus-visible-invalid-outline: 2px solid red;
 
+  /* table section */
+  --table-border: 2px solid var(--color-palette-black);
+  --table-box-shadow: 0 0 5px 5px #00000015;
+  --table-height: 12rem;
+  --table-letter-spacing: 1px;
+  --table-margin: 2rem 0;
+  --table-table-layout: fixed;
+  --table-width: 100%;  
+  --table-scope-column-background-color: var(--color-palette-blue);
+  --table-scope-column-color: white;
+  --table-tr-even-background-color: var(--color-palette-orange);
+  --table-tr-odd-background-color: var(--color-palette-maroon);
+  --table-td-width: 10%;
+  --table-th-width: 15%;
+  --table-td-word-break: break-all;
+  --table-td-th-font-size: clamp(0.5rem, 3vw, 1rem);
+  --table-td-th-padding: 0.8rem;
+  --table-td-th-text-align: left;
+  --table-tr-border: 2px solid var(--color-palette-black);
+  --table-tr-font-family: monospace, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --table-td-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --table-th-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --table-th-font-weight: bold;
+  --table-caption-caption-side: bottom;
+  --table-caption-color: white;
+  --table-caption-font-family: 'dancing script', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --table-caption-font-size: clamp(0.8rem, 3vw, 1.8rem);
+  --table-caption-font-weight: bold;
+  --table-caption-padding: 1rem;
 }
 
-/* main parts */
+header.header,
+body,
+div.home,
+div.menu > ul > li,
+div.contact > form > ul,
+button {
+  background-image: url(img/noise.png);
+}
 
 body {
-  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-image: url(img/noise.png);
-  background-color: whitesmoke;
-  min-width: min(100% - 3rem, 500px);
+  background-color: var(--color-palette-black);
+  font-family: var(--body-font-family);
+  min-width: var(--body-min-width);
+  color: var(--body-color);
 }
 
 .styleBody {
-  display: flex;
-  justify-content: center;
-  flex-direction: column-reverse;
+  display: var(--body-display);
+  flex-direction: var(--body-flex-direction);
+  justify-content: var(--body-justify-content);
 }
 
 .header {
-  box-shadow: 0 0 5px 3px #00000015;
-  border-bottom: 1px solid #00000015;
-  padding: 0.5rem 2rem;
-  top: 0;
-  position: sticky;
-  background-color: white;
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-image: url(img/noise.png);
-  background-color: whitesmoke;
+  align-items: var(--header-align-items);
+  background-color: var(--color-palette-orange);
+  border-bottom: var(--header-border-bottom);
+  box-shadow: var(--header-box-shadow);
+  padding: var(--header-padding);
+  display: var(--header-display);
+  justify-content: var(--header-justify-content);
+  position: var(--header-position);
+  top: var(--header-top);
+  z-index: var(--header-z-index);
 }
 
 h1 {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: clamp(1.5rem, 5vh, 5rem);
-  font-family: 'dancing script', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  align-items: var(--h1-align-items);
+  display: var(--h1-display);
+  font-family: var(--h1-font-family);
+  font-size: var(--h1-font-size);
+  flex-direction: var(--h1-flex-direction);
+  justify-content: var(--body-flex-direction);
 }
 
 .header nav > ul {
-  display: flex;
-  padding-left: 0.5rem;
+  display: var(--header-ul-display);
+  padding-left: var(--header-ul-padding-left);
 }
 
 .header nav ul > li {
-  padding: 0.5rem 0.75rem;
+  padding: var(--header-list-item-padding);
 }
 
 .header nav ul > li > a:hover {
-  color: green;
+  color: var(--header-list-item-anchor-color);
 }
 
 .header nav ul > li > a:active {
-  color: blue;
+  color: var(--header-nav-ul-li-a-active-color);
 }
 
 .header nav ul > li > a:visited {
-  color: rebeccapurple;
+  color: var(--header-nav-ul-li-a-active-color);
 }
 
 div.home {
-  min-width: 45ch;
-  max-width: 75ch;
-  margin-left: 7%;
-  border-bottom-left-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
-  box-shadow: 0 0 5px 5px #00000015;
-  border: 1px solid #00000015;
+  min-width: var(--div-home-min-width);
+  max-width: var(--div-home-max-width);
+  margin-left: var(--div-home-margin-left);
+  border-bottom-left-radius: var(--div-home-border-bottom-left-radius);
+  border-bottom-right-radius: var(--div-home-border-bottom-right-radius);
+  box-shadow: var(--div-home-box-shadow);
+  border: var(--div-home-border);
+  background-color: var(--color-palette-maroon);
+  color: var(--div-home-color);
 }
 
 div.home > img {
-  width: 100%;
-  height: auto;
+  width: var(--div-home-img-width);
+  height: var(--div-home-img-height);
 }
+
 div.home > h2 {
-  font-size: clamp(1rem, 5vw, 2.2rem);
-  font-family: 'dancing script';
-  padding: 0.5rem 1rem;
+  font-size: var(--div-home-h2-font-size);
+  font-family: var(--div-home-h2-font-family);
+  padding: var(--div-home-h2-padding);
 }
 
 div.home > p {
-  padding: 1rem;
-  line-height: 1.5;
-  letter-spacing: 0.5px;
-  font-size: clamp(1rem, 2vw, 2rem);
+  padding: var(--div-home-para-padding);
+  line-height: var(--div-home-para-line-height);
+  letter-spacing: var(--div-home-para-letter-spacing);
+  font-size: var(--div-home-para-font-size);
 }
 
 div.home > button {
-  padding: 1rem 2.5rem;
-  border-radius: 0.75rem;
-  margin: 1rem;
-  background-color: green;
-  font-size: large;
-  color: white;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  border-color: #00000040;
+  padding: var(--div-home-button-padding);
+  border-radius: var(--div-home-button-border-radius);
+  margin: var(--div-home-button-margin);
+  background-color: var(--div-home-button-background-color);
+  font-size: var(--div-home-button-font-size);
+  color: var(--div-home-button-color);
+  font-weight: var(--div-home-button-font-weight);
+  letter-spacing: var(--div-home-button-letter-spacing);
 }
 
 div.menu {
-  padding: 3rem;
-  margin: 1rem 2rem;
+  padding: var(--div-menu-padding);
+  margin: var(--div-menu-margin);
 }
 
 h2.menu-h2 {
-  padding: 1rem 0.75rem;
-  font-size: clamp(1rem, 5vh, 2.5rem);
-  letter-spacing: 0.5px;
-  line-height: 1.5;
-  font-weight: bolder;
+  padding: var(--h2-menu-padding);
+  font-size: var(--h2-menu-font-size);
+  letter-spacing: var(--h2-menu-letter-spacing);
+  line-height: var(--h2-menu-line-height);
+  font-weight: var(--h2-menu-font-weight);
 }
 
 div.menu > ul {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: var(--div-menu-unordered-lists-display);
+  gap: var(--div-menu-unordered-lists-gap);
+  grid-template-columns: var(--div-menu-unordered-lists-grid-template-columns);
 }
 
 div.menu > ul > li > div > img {
-  width: 100%;
-  height: auto;
+  border-top-left-radius: var(--div-menu-food-items-img-border-top-left-radius);
+  border-top-right-radius: var(--div-menu-food-items-img-border-top-right-radius);
+  height: var(--div-menu-food-items-img-height);
+  width: var(--div-menu-food-items-img-width);
 }
 
 div.menu > ul > li {
-  border: 1px solid #00000015;
-  box-shadow: 0 0 5px 3px #00000015;
-  position: relative;
-  padding-bottom: 2.5rem;
+  background-color: var(--div-menu-food-items-background-color);
+  border: var(--div-menu-food-items-border);
+  border-radius: var(--div-menu-food-items-border-radius);
+  box-shadow: var(--div-menu-food-items-box-shadow);
+  padding-bottom: var(--div-menu-food-items-padding-bottom);
+  position: var(--div-menu-food-items-position);
 }
 
 div.menu > ul > li > div > h3 {
-  padding: 0.5rem 0.75rem;
-  letter-spacing: 0.5px;
-  line-height: 1.5;
-  font-size: clamp(1rem, 3vh, 2rem);
-  font-weight: bold;
+  font-size: var(--div-menu-h3-font-size);
+  font-weight: var(--div-menu-h3-font-weight);
+  letter-spacing: var(--div-menu-h3-letter-spacing);
+  line-height: var(--div-menu-h3-line-height);
+  padding: var(--div-menu-h3-padding);
 }
 
 div.menu > ul > li > div > p {
-  padding: 0.5rem 0.75rem;
-  letter-spacing: 0.5px;
-  line-height: 1.5;
-  font-size: clamp(0.5rem, 3vh, 1.5rem);
+  font-size: var(--div-menu-para-font-size);
+  letter-spacing: var(--div-menu-para-letter-spacing);
+  line-height: var(--div-menu-para-line-height);
+  padding: var(--div-menu-para-padding);
 }
 
 div.menu > ul > li > div > span {
-  font-family: monospace;
-  padding: 1rem 0.75rem;
-  letter-spacing: 0.5px;
-  font-size: clamp(0.5rem, 3vh, 1.5rem);
-  position: absolute;
-  bottom: 1%;
-  left: 2%;
+  bottom: var(--div-food-prices-bottom);
+  font-family: var(--div-food-prices-font-family);
+  font-size: var(--div-food-prices-font-size);
+  left: var(--div-food-prices-left);
+  letter-spacing: var(--div-food-prices-letter-spacing);
+  padding: var(--div-food-prices-padding);
+  position: var(--div-food-prices-position);
 }
 
 div.contact {
-  margin: 1rem 3rem;
+  margin: var(--div-contact-margin);
 }
 
 div.contact > h2 {
-  font-size: clamp(1.5rem, 5vw, 2rem);
-  padding: 1.5rem 0.5rem;
+  font-size: var(--div-contact-h2-font-size);
+  padding: var(--div-contact-h2-padding);
 }
 
 div.contact > form > ul {
-  border: 1px solid #00000015;
-  border-radius: 0.75rem;
-  box-shadow: 0 0 5px 4px #00000015;
-  margin-bottom: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0.75rem 2rem;
-  flex-direction: column;
-  max-width: 75ch;
-  min-width: 45ch;
+  background-color: var(--color-palette-blue);
+  border-radius: var(--div-contact-ul-border-radius);
+  border: var(--div-contact-ul-border);
+  box-shadow: var(--div-contact-ul-box-shadow);
+  display: var(--div-contact-ul-display);
+  flex-direction: var(--div-contact-ul-flex-direction);
+  flex-wrap: var(--div-contact-ul-flex-wrap);
+  margin-bottom: var(--div-contact-ul-margin-bottom);
+  max-width: var(--div-contact-ul-max-width);
+  min-width: var(--div-contact-ul-min-width);
+  padding: var(--div-contact-ul-padding);
 }
 
 div.contact > form > ul > li {
-  display: flex;
-  flex-direction: column;
+  display: var(--div-contact-li-display);
+  flex-direction: var(--div-contact-li-flex-direction);
 }
 
 label {
-  font-size: clamp(0.5rem, 3vw, 1.5rem);
-  padding: 0.75rem 0.5rem;
+  font-size: var(--label-font-size);
+  padding: var(--label-padding);
 }
 
 input[type="text"], 
 input[type='email'],
 textarea {
-  padding: 1rem 0.5rem;
-  font-size: clamp(0.5rem, 3vw, 1.5rem);
-  border-radius: 0.75rem;
-  border-color: #00000015;
-  resize: none;
+  background-color: var(--input-name-email-textarea-background-color);
+  background-image: var(--body-background-image);
+  border-color: var(--input-name-email-textarea-border-color);
+  border-radius: var(--input-name-email-textarea-border-radius);
+  font-size: var(--input-name-email-textarea-font-size);
+  padding: var(--input-name-email-textarea-padding);
+  resize: var(--input-name-email-textarea-resize);
 }
 
 input[type='text']:focus-visible,
 input[type='email']:focus-visible {
-  outline: 2px solid green;
-  background-color: #00ff0015;
-  outline-offset: 0;
+  background-color: var(--input-name-email-focus-visible-background-color);
+  outline-offset: var(--input-name-email-focus-visible-outline-offset);
+  outline: var(--input-name-email-focus-visible-outline);
 }
 
 input[type='text']:focus-visible:valid,
 input[type='email']:focus-visible:valid {
-  outline-color: blue;
-  background-color: #0000ff15;
+  outline-color: var(--input-name-email-focus-visible-valid-outline-color);
 } 
 
 input[type='text']:focus-visible:invalid,
 input[type='email']:focus-visible:invalid {
-  outline-color: red;
-  background-color: #ff000015;
+  outline-color: var(--input-name-email-focus-visible-invalid-outline-color);
 }
 
 button[type='submit'] {
-  width: max-content;
-  padding: 1rem 2rem;
-  margin: 1rem 0.5rem;
-  border-radius: 0.75rem;
-  border-color: powderblue;
-  background-color: green;
-  color: white;
-  font-weight: bold;
-  font-size: clamp(1rem, 3vw, 1rem);
+  background-color: var(--button-type-submit-background-color);
+  border-radius: var(--button-type-submit-border-radius);
+  color: var(--button-type-submit-color);
+  font-size: var(--button-type-submit-font-size);
+  font-weight: var(--button-type-submit-font-weight);
+  margin: var(--button-type-submit-margin);
+  padding: var(--button-type-submit-padding);
+  width: var(--button-type-submit-width);
 }
 
 textarea:focus-visible {
-  outline: 2px solid green;
-  background-color: #00ff0015;
-  outline-offset: 0;
+  outline: var(--text-area-focus-visible-outline);
+  outline-offset: var(--text-area-focus-visible-outline-offset);
 }
 
 textarea:focus-visible:valid {
-  outline: 2px solid blue;
-  background-color: #0000ff15;
+  outline: var(--text-area-focus-visible-vaild-outline);
 }
 
 textarea:focus-visible:invalid {
-  background-color: rgba(255, 0, 0, 0.15);
+  outline: var(--text-area-focus-visible-invalid-outline);
 }
 
 table {
-  table-layout: fixed;
-  letter-spacing: 1px;
-  border: 1px solid #00000015;
-  width: 100%;
-  margin: 2rem 0;
-  box-shadow: 0 0 5px 5px #00000015;
-  height: 12rem;
+  border: var(--table-border);
+  box-shadow: var(--table-box-shadow);
+  height: var(--table-height);
+  letter-spacing: var(--table-letter-spacing);
+  margin: var(--table-margin);
+  table-layout: var(--table-table-layout);
+  width: var(--table-width);
 }
 
 th[scope='col'] {
-  background-color: #80008040;
-  color: white;
+  background-color: var(--table-scope-column-background-color);
+  background-image: url(img/noise.png);
+  color: var(--table-scope-column-color);
 }
 
 tr:nth-child(even) {
-  background-color: #ff00ff40;
-  border-radius: 0.75rem;
+  background-color: var(--table-tr-even-background-color);
+  background-image: url(img/noise.png);
 }
 
 tr:nth-child(odd) {
-  background-color: #80008040;
-}
-
-td, th {
-  padding: 1rem;
-  text-align: left;
+  background-color: var(--table-tr-odd-background-color);
+  background-image: url(img/noise.png);
 }
 
 td {
-  font-family: monospace, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding: 1rem;
+  width: var(--table-td-width);
+  word-break: var(--table-td-word-break);
 }
 
 th {
-  font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: var(--table-th-width);
+}
+
+td, th {
+  font-size: var(--table-td-th-font-size);
+  padding: var(--table-td-th-padding);
+  text-align: var(--table-td-th-text-align);
+}
+
+tr {
+  border: 2px solid var(--color-palette-black);
+}
+
+td {
+  font-family: var(--table-td-font-family);
+}
+
+th {
+  font-weight: var(--table-th-font-weight);
+  font-family: var(--table-th-font-family);
 }
 
 table caption {
-  caption-side: bottom;
-  font-size: clamp(0.8rem, 3vw, 1.8rem);
-  font-family: 'dancing script', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: #232323;
-  font-weight: bold;
-  padding: 1rem;
+  caption-side: var(--table-caption-caption-side);
+  color: var(--table-caption-color);
+  font-family: var(--table-caption-font-family);
+  font-size: var(--table-caption-font-size);
+  font-weight: var(--table-caption-font-weight);
+  padding: var(--table-caption-padding);
 }
