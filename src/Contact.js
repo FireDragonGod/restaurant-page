@@ -50,6 +50,15 @@ export class Contact {
   tdClosed6 = document.createElement('td');
   tdClosed7 = document.createElement('td');
 
+  putChildInsideFamilyTree(
+    parent,
+    children
+    ) {
+    children.forEach((child) => {
+      parent.appendChild(child);
+    });
+  };
+
   renderContactContent() {
     this.contactTitle.textContent = 'Contact Us';
     this.label1.textContent = 'Full Name: ';
@@ -82,11 +91,12 @@ export class Contact {
     this.tdClosed5.textContent = '5:00AM';
     this.tdClosed6.textContent = '5:00AM';
     this.tdClosed7.textContent = '4:00AM';
+    this.caption.textContent = 'Hours'
 
     this.form.setAttribute(
       'action', 
       ''
-      );
+    );
     this.form.setAttribute(
       'method',
       'get'
@@ -94,39 +104,39 @@ export class Contact {
     this.label1.setAttribute(
       'for', 
       'full-name'
-      );
+    );
     this.label2.setAttribute(
       'for', 
       'email-address'
-      );
+    );
     this.label3.setAttribute(
       'for', 
       'message'
-      );
+    );
     this.inputFullName.setAttribute(
       'type', 
       'text'
-      );
+    );
     this.inputFullName.setAttribute(
       'id', 
       'full-name'
-      );
+    );
     this.inputFullName.setAttribute(
       'required', 
       ''
-      );
+    );
     this.inputFullName.setAttribute(
       'name', 
       'full-name'
-      );
+    );
     this.inputFullName.setAttribute(
       'placeholder', 
       'John Ritche'
-      );
+    );
     this.inputEmail.setAttribute(
       'type', 
       'email'
-      );
+    );
     this.inputEmail.setAttribute(
       'required',
       '',
@@ -134,141 +144,192 @@ export class Contact {
     this.inputEmail.setAttribute(
       'id', 
       'email-address'
-      );
+    );
     this.inputEmail.setAttribute(
       'name', 
       'email-address'
-      );
+    );
     this.inputEmail.setAttribute(
       'placeholder', 
       'John@example.com'
-      );
+    );
     this.inputMessage.setAttribute(
       'name', 
       'message'
-      );
+    );
     this.inputMessage.setAttribute(
       'minlength', 
       '20'
-      );
+    );
     this.inputMessage.setAttribute(
       'id', 
       'message'
-      );
+    );
     this.inputMessage.setAttribute(
       'col', 
       '20',
-      );
-      this.inputMessage.setAttribute(
-        'required', 
-        ''
-        );
+    );
+    this.inputMessage.setAttribute(
+      'required', 
+      ''
+    );
     this.inputMessage.setAttribute(
       'rows', 
       '5'
-      );
+    );
     this.inputMessage.setAttribute(
       'maxlength',
       '200'
-      )
+    );
     this.button.setAttribute(
       'type', 
       'submit'
-      );
+    );
     this.hours.classList.add(
       'hours'
-      );
-    this.th1.setAttribute(
-      'scope', 
-      'col'
-      );
-    this.th2.setAttribute(
-      'scope', 
-      'col'
-      );
-    this.th3.setAttribute(
-      'scope', 
-      'col'
-      );
-    this.th4.setAttribute(
-      'scope', 
-      'col'
-      );
-    this.th5.setAttribute(
-      'scope', 
-      'col'
-      );
-    this.th6.setAttribute(
-      'scope', 
-      'col'
-      );
-    this.th7.setAttribute(
-      'scope', 
-      'col'
-      );
-    this.th8.setAttribute(
-      'scope', 
-      'col'
-      );
-    this.thOpen.setAttribute(
-      'scope', 
-      'rows'
-      );
-    this.thClosed.setAttribute(
-      'scope', 
-      'rows'
-      );
+    );
 
-    this.contact.classList.add('contact')
+    const group = [
+      this.th1, 
+      this.th2, 
+      this.th3, 
+      this.th4, 
+      this.th5, 
+      this.th6, 
+      this.th7, 
+      this.th8
+    ];
 
-    this.contact.appendChild(this.contactTitle);
-    this.contact.appendChild(this.form);
-    this.contact.appendChild(this.address);
-    this.contact.appendChild(this.hours);
+    group.forEach((item) => {
+      item.setAttribute(
+        'scope', 
+        'col'
+      );
+    });
+
+    const groupOpenClosed = [
+      this.thClosed, 
+      this.thOpen
+      ];
+    groupOpenClosed.forEach((item) => {
+      item.setAttribute(
+        'scope',
+        'rows'
+      );
+    });
+
+    this.contact.classList.add('contact');
+
+    this.putChildInsideFamilyTree(
+      this.contact, 
+      [
+        this.contactTitle,
+        this.form,
+        this.address,
+        this.hours,
+      ]
+    );
+    
+    this.putChildInsideFamilyTree(
+      this.ul,
+      [
+        this.li1,
+        this.li2,
+        this.li3,
+        this.li4,
+      ]
+    );
+
     this.form.appendChild(this.ul);
-    this.ul.appendChild(this.li1);
-    this.ul.appendChild(this.li2);
-    this.ul.appendChild(this.li3);
-    this.ul.appendChild(this.li4)
-    this.li1.appendChild(this.label1);
-    this.li2.appendChild(this.label2);
-    this.li3.appendChild(this.label3);
-    this.li1.appendChild(this.inputFullName);
-    this.li2.appendChild(this.inputEmail);
-    this.li3.appendChild(this.inputMessage);
+
+    this.putChildInsideFamilyTree(
+      this.li1,
+      [
+        this.label1,
+        this.inputFullName
+      ]
+    );
+
+    this.putChildInsideFamilyTree(
+      this.li2,
+      [
+        this.label2,
+        this.inputEmail
+      ]
+    );
+
+    this.putChildInsideFamilyTree(
+      this.li3,
+      [
+        this.label3,
+        this.inputMessage
+      ]
+    );
+
     this.li4.appendChild(this.button);
+
     this.address.appendChild(this.h3);
     this.hours.appendChild(this.table);
-    this.table.appendChild(this.caption);
-    this.table.appendChild(this.tbody);
-    this.caption.appendChild(this.h2);
-    this.tbody.appendChild(this.tr1);
-    this.tbody.appendChild(this.tr2);
-    this.tbody.appendChild(this.tr3);
-    this.tr1.appendChild(this.th1);
+
+    this.putChildInsideFamilyTree(
+      this.table,
+      [
+        this.caption,
+        this.tbody
+      ]
+    );
+
+    this.putChildInsideFamilyTree(
+      this.tbody,
+      [
+        this.tr1,
+        this.tr2,
+        this.tr3
+      ]
+    );
+
     this.tr2.appendChild(this.thOpen);
     this.tr3.appendChild(this.thClosed);
-    this.tr1.appendChild(this.th2);
-    this.tr1.appendChild(this.th3);
-    this.tr1.appendChild(this.th4);
-    this.tr1.appendChild(this.th5);
-    this.tr1.appendChild(this.th6);
-    this.tr1.appendChild(this.th7);
-    this.tr1.appendChild(this.th8);
-    this.tr2.appendChild(this.tdOpen1);
-    this.tr2.appendChild(this.tdOpen2);
-    this.tr2.appendChild(this.tdOpen3);
-    this.tr2.appendChild(this.tdOpen4);
-    this.tr2.appendChild(this.tdOpen5);
-    this.tr2.appendChild(this.tdOpen6);
-    this.tr2.appendChild(this.tdOpen7);
-    this.tr3.appendChild(this.tdClosed1);
-    this.tr3.appendChild(this.tdClosed2);
-    this.tr3.appendChild(this.tdClosed3);
-    this.tr3.appendChild(this.tdClosed4);
-    this.tr3.appendChild(this.tdClosed5);
-    this.tr3.appendChild(this.tdClosed6);
-    this.tr3.appendChild(this.tdClosed7);
+
+    this.putChildInsideFamilyTree(
+      this.tr1,
+      [
+        this.th1,
+        this.th2,
+        this.th3,
+        this.th4,
+        this.th5,
+        this.th6,
+        this.th7,
+        this.th8
+      ]
+    );
+
+    this.putChildInsideFamilyTree(
+      this.tr2,
+      [
+        this.tdOpen1,
+        this.tdOpen2,
+        this.tdOpen3,
+        this.tdOpen4,
+        this.tdOpen5,
+        this.tdOpen6,
+        this.tdOpen7
+      ]
+    );
+
+    this.putChildInsideFamilyTree(
+      this.tr3,
+      [
+        this.tdClosed1,
+        this.tdClosed2,
+        this.tdClosed3,
+        this.tdClosed4,
+        this.tdClosed5,
+        this.tdClosed6,
+        this.tdClosed7
+      ]
+    );
 
     return this.contact;
   };

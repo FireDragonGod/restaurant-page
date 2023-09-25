@@ -7,7 +7,6 @@ import pandesal from './img/pandesal.jpg';
 import bibingka from './img/bibingka.jpg';
 import taho from './img/taho.jpg'
 
-
 export class Menu {
   menu = document.createElement('div');
   h2AndImgWrapper = document.createElement('div');
@@ -54,6 +53,15 @@ export class Menu {
   span7 = document.createElement('span');
   span8 = document.createElement('span');
 
+  putChildInsideFamilyTree(
+    parent, 
+    children
+    ) {
+    children.forEach((child) => {
+      parent.appendChild(child);
+    });
+  }
+
   renderMenu() {
     this.h2.textContent = 'Menu';
 
@@ -65,6 +73,22 @@ export class Menu {
     const pande = new Image();
     const bibing = new Image();
     const tahoo = new Image();
+
+    [
+      orderLugaw,
+      beef,
+      mami,
+      champo,
+      ensaymada,
+      pande,
+      bibing,
+      tahoo
+    ].forEach((img) => {
+      img.setAttribute(
+        'draggable',
+        'false',
+      )
+    });
 
     beef.src = beefPares;
     orderLugaw.src = lugaw;
@@ -91,16 +115,16 @@ export class Menu {
     this.para5.textContent = 'Butter and topped with buttercream, sugar, and grated cheese, typically queso de bola.';
     this.para6.textContent = 'Ube flavored pandesal wheat flour'
     this.para7.textContent = 'Glutinous rice with coconut milk.';
-    this.para8.textContent = 'simple syrup';
+    this.para8.textContent = 'Simple syrup';
 
     this.span1.textContent = '$2.00';
     this.span2.textContent = '$1.40';
     this.span3.textContent = '$2.40';
     this.span4.textContent = '$1.00';
     this.span5.textContent = '$1.00';
-    this.span6.textContent = '$0.5';
-    this.span7.textContent = '$0.5';
-    this.span8.textContent = '$0.4';
+    this.span6.textContent = '$0.50';
+    this.span7.textContent = '$0.50';
+    this.span8.textContent = '$0.40';
 
     this.div1.classList.add('lugaw');
     this.div2.classList.add('beef-pares');
@@ -116,14 +140,21 @@ export class Menu {
     this.menu.appendChild(this.h2AndImgWrapper);
     this.h2AndImgWrapper.appendChild(this.h2);
     this.menu.appendChild(this.ul);
-    this.ul.appendChild(this.li1);
-    this.ul.appendChild(this.li2);
-    this.ul.appendChild(this.li3);
-    this.ul.appendChild(this.li4);
-    this.ul.appendChild(this.li5);
-    this.ul.appendChild(this.li6);
-    this.ul.appendChild(this.li7);
-    this.ul.appendChild(this.li8)
+
+    this.putChildInsideFamilyTree(
+      this.ul, 
+      [
+        this.li1,
+        this.li2,
+        this.li3,
+        this.li4,
+        this.li5,
+        this.li6,
+        this.li7,
+        this.li8
+      ]
+    );
+
     this.li1.appendChild(this.div1);
     this.li2.appendChild(this.div2);
     this.li3.appendChild(this.div3);
@@ -133,41 +164,86 @@ export class Menu {
     this.li7.appendChild(this.div7);
     this.li8.appendChild(this.div8);
 
-    this.div1.appendChild(orderLugaw);
-    this.div2.appendChild(beef);
-    this.div3.appendChild(mami);
-    this.div4.appendChild(champo);
-    this.div5.appendChild(ensaymada);
-    this.div6.appendChild(pande);
-    this.div7.appendChild(bibing);
-    this.div8.appendChild(tahoo);
+    this.putChildInsideFamilyTree(
+      this.div1,
+      [
+        orderLugaw,
+        this.h31,
+        this.para1,
+        this.span1,
+      ]
+    );
 
-    this.div1.appendChild(this.h31);
-    this.div2.appendChild(this.h32);
-    this.div3.appendChild(this.h33);
-    this.div4.appendChild(this.h34);
-    this.div5.appendChild(this.h35);
-    this.div6.appendChild(this.h36);
-    this.div7.appendChild(this.h37);
-    this.div8.appendChild(this.h38);
-    this.div1.appendChild(this.para1);
-    this.div2.appendChild(this.para2);
-    this.div3.appendChild(this.para3);
-    this.div4.appendChild(this.para4);
-    this.div5.appendChild(this.para5);
-    this.div6.appendChild(this.para6);
-    this.div7.appendChild(this.para7);
-    this.div8.appendChild(this.para8);
-    this.div1.appendChild(this.span1);
-    this.div2.appendChild(this.span2);
-    this.div3.appendChild(this.span3);
-    this.div4.appendChild(this.span4);
-    this.div5.appendChild(this.span5);
-    this.div6.appendChild(this.span6);
-    this.div7.appendChild(this.span7);
-    this.div8.appendChild(this.span8);
+    this.putChildInsideFamilyTree(
+      this.div2,
+      [
+        beef,
+        this.h32,
+        this.para2,
+        this.span2,
+      ]
+    );
+
+    this.putChildInsideFamilyTree(
+      this.div3,
+      [
+        mami,
+        this.h33,
+        this.para3,
+        this.span3,
+      ]
+    );
+
+    this.putChildInsideFamilyTree(
+      this.div4,
+      [
+        champo,
+        this.h34,
+        this.para4,
+        this.span4,
+      ]
+    );
+
+    this.putChildInsideFamilyTree(
+      this.div5,
+      [
+        ensaymada,
+        this.h35,
+        this.para5,
+        this.span5,
+      ]
+    );
+
+    this.putChildInsideFamilyTree(
+      this.div6,
+      [
+        pande,
+        this.h36,
+        this.para6,
+        this.span6,
+      ]
+    );
+
+    this.putChildInsideFamilyTree(
+      this.div7,
+      [
+        bibing,
+        this.h37,
+        this.para7,
+        this.span7,
+      ]
+    );
+
+    this.putChildInsideFamilyTree(
+      this.div8,
+      [
+        tahoo,
+        this.h38,
+        this.para8,
+        this.span8,
+      ]
+    );
 
     return this.menu;
   };
-}
-;
+};
